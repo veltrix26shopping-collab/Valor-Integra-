@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor Integra S.A. de C.V. | Consultoría Estratégica & Marketing Digital</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Cormorant Garamond (Elegancia Femenina), Montserrat & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            rose: 'rgba(244, 114, 182, 0.15)',
+                            roseBorder: 'rgba(244, 114, 182, 0.35)',
+                            roseDeep: '#F472B6',
+                            roseVibrant: '#FB7185',
+                            mint: 'rgba(52, 211, 153, 0.15)',
+                            mintDark: '#34D399',
+                            lavender: 'rgba(192, 132, 252, 0.15)',
+                            lavenderDark: '#C084FC',
+                            cream: '#0F172A',
+                            pearl: '#1E293B',
+                            goldRose: '#FBBF24',
+                            navySoft: '#0F172A',
+                            slateRose: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'rose-glow': '0 10px 30px -5px rgba(244, 114, 182, 0.4)',
+                        'mint-glow': '0 10px 30px -5px rgba(52, 211, 153, 0.4)',
+                        'soft-float': '0 20px 40px -10px rgba(0, 0, 0, 0.5)'
+                    },
+                    animation: {
+                        'float-soft': 'floatSoft 6s ease-in-out infinite',
+                        'float-delayed': 'floatSoft 6s ease-in-out 3s infinite',
+                        'pulse-rose': 'pulseRose 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        floatSoft: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        pulseRose: {
+                            '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0F172A;
+            color: #E2E8F0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+        }
+
+        .glass-card-pastel {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(244, 114, 182, 0.2);
+        }
+
+        .glass-card-rose {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(30, 27, 75, 0.8) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(244, 114, 182, 0.4);
+        }
+
+        .gradient-text-rose {
+            background: linear-gradient(135deg, #F472B6 0%, #FB7185 50%, #FBBF24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        input[type=range] {
+            accent-color: #F472B6;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #F472B6;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="selection:bg-pastel-roseDeep/30 selection:text-white">
+
+    <!-- Canvas de Micro-Partículas Pasteles en Fondo -->
+    <canvas id="pastel-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- 1. HEADER & NAVEGACIÓN FLOTANTE -->
+    <header class="sticky top-0 z-50 transition-all duration-300 glass-header shadow-md" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo corporativo delicado -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-12 flex items-center justify-center bg-gradient-to-tr from-pastel-roseDeep via-pastel-roseVibrant to-pastel-goldRose rounded-2xl shadow-rose-glow group-hover:scale-105 transition duration-300">
+                        <i class="fa-solid fa-gem text-slate-950 text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-xl tracking-wide text-white leading-tight">
+                            VALOR <span class="gradient-text-rose italic font-medium">INTEGRA</span>
+                        </span>
+                        <span class="text-[9px] font-semibold tracking-widest text-pastel-goldRose uppercase">S.A. de C.V. | Consultoría Femenina</span>
+                    </div>
+                </a>
+
+                <!-- Navegación Principal -->
+                <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/80 px-4 py-1.5 rounded-full border border-pastel-roseBorder/40 shadow-inner">
+                    <a href="#inicio" class="px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-pastel-roseDeep hover:bg-white/5 rounded-full transition">Inicio</a>
+                    <a href="#quienes-somos" class="px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-pastel-roseDeep hover:bg-white/5 rounded-full transition">Nosotras</a>
+                    <a href="#buscador-soluciones" class="px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-pastel-roseDeep hover:bg-white/5 rounded-full transition">Filtro Soluciones</a>
+                    <a href="#servicios" class="px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-pastel-roseDeep hover:bg-white/5 rounded-full transition">Servicios</a>
+                    <a href="#marco-legal" class="px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-pastel-roseDeep hover:bg-white/5 rounded-full transition">Regulación & Legal</a>
+                    <a href="#precios" class="px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-pastel-roseDeep hover:bg-white/5 rounded-full transition">Planes</a>
+                </nav>
+
+                <!-- Botones CTA -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <button onclick="openModalCita()" class="px-5 py-2.5 text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 rounded-full transition border border-pastel-roseBorder shadow-sm flex items-center gap-2">
+                        <i class="fa-regular fa-calendar-check text-pastel-roseDeep"></i>
+                        <span>Agendar Cita</span>
+                    </button>
+                    <a href="#diagnostico" class="px-5 py-2.5 text-xs font-bold text-slate-950 bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose rounded-full shadow-rose-glow hover:scale-105 transition duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-sparkles text-slate-950"></i>
+                        <span>Test Diagnóstico</span>
+                    </a>
+                </div>
+
+                <!-- Botón Móvil -->
+                <button id="mobile-toggle" class="lg:hidden text-white p-2 rounded-xl focus:outline-none">
+                    <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-pastel-roseBorder px-6 pt-4 pb-8 space-y-3 shadow-2xl">
+            <a href="#inicio" class="mobile-link block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5">Inicio</a>
+            <a href="#quienes-somos" class="mobile-link block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5">Quiénes Somos</a>
+            <a href="#buscador-soluciones" class="mobile-link block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5">Buscador de Soluciones</a>
+            <a href="#servicios" class="mobile-link block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5">Servicios & Marketing</a>
+            <a href="#marco-legal" class="mobile-link block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5">Marco Legal & Compliance</a>
+            <a href="#precios" class="mobile-link block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5">Planes y Precios</a>
+            <button onclick="openModalCita()" class="w-full text-center mt-2 px-6 py-3 text-xs font-bold text-slate-950 bg-pastel-roseDeep rounded-xl shadow-md">Agendar Cita Presencial / Virtual</button>
+        </div>
+    </header>
+
+    <!-- 2. HERO PRINCIPAL ULTRA FEMENINO Y ELEGANTE -->
+    <section id="inicio" class="relative min-h-[85vh] flex items-center justify-center pt-8 pb-16 overflow-hidden">
+        
+        <!-- Destellos Pasteles de Fondo -->
+        <div class="absolute top-12 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl pointer-events-none animate-pulse-rose"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Texto -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-7">
+                    
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-pastel-roseBorder/60 text-slate-200 text-xs font-medium shadow-sm">
+                        <i class="fa-solid fa-crown text-pastel-goldRose"></i>
+                        <span>Consultoría Integral con Enfoque Femenino & Legalidad Mercantil</span>
+                    </div>
+
+                    <h1 class="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+                        Estructura Organizacional, <span class="gradient-text-rose italic">Marketing Digital</span> y Seguridad Jurídica
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        En <strong class="text-white font-semibold">Consultoría Integral de Negocios Valor Integra S.A. de C.V.</strong> impulsamos a tu empresa alineando sus procesos internos, estrategia publicitaria y blindaje legal bajo normativas vigentes.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#servicios" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-pastel-roseDeep via-pastel-roseVibrant to-pastel-goldRose text-slate-950 font-bold text-xs rounded-full shadow-rose-glow hover:scale-105 transition duration-300 text-center flex items-center justify-center gap-2">
+                            <span>Ver Servicio Estrella</span>
+                            <i class="fa-solid fa-arrow-right text-slate-950"></i>
+                        </a>
+                        <a href="#buscador-soluciones" class="w-full sm:w-auto px-8 py-4 bg-slate-800/90 text-white font-bold text-xs rounded-full border border-pastel-roseBorder shadow-sm hover:bg-slate-700 transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass text-pastel-roseDeep"></i>
+                            <span>Buscar Solución por Problema</span>
+                        </a>
+                    </div>
+
+                    <!-- Métricas -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <div class="text-2xl sm:text-3xl font-bold font-serif text-white">100%</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-semibold">Cumplimiento Legal</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-2xl sm:text-3xl font-bold font-serif text-pastel-roseDeep">3.4x</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-semibold">ROI Promedio</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-2xl sm:text-3xl font-bold font-serif text-pastel-goldRose">250+</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-semibold">Empresas Asesoradas</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tarjeta 3D Flotante con Efecto Soft Glow -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div id="tilt-card" class="w-full max-w-md transition-transform duration-300 ease-out">
+                        <div class="glass-card-rose p-8 rounded-3xl shadow-soft-float space-y-6 relative border border-pastel-roseBorder">
+                            
+                            <!-- Header de tarjeta -->
+                            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-2xl bg-slate-900 border border-pastel-roseBorder flex items-center justify-center text-pastel-roseDeep shadow-sm">
+                                        <i class="fa-solid fa-shield-halved text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif font-bold text-sm text-white">Valor Integra Monitor</h3>
+                                        <p class="text-[10px] text-slate-400">Gestión Integral de Negocios</p>
+                                    </div>
+                                </div>
+                                <span class="bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-[10px] font-extrabold px-3 py-1 rounded-full">Protegido & Escalable</span>
+                            </div>
+
+                            <!-- Métricas de la tarjeta -->
+                            <div class="space-y-4 text-xs">
+                                <div>
+                                    <div class="flex justify-between text-slate-300 mb-1">
+                                        <span>Estructura Operativa & Normativa</span>
+                                        <span class="font-bold text-white">98%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-900/80 rounded-full h-2 overflow-hidden border border-white/5">
+                                        <div class="bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose h-2 rounded-full w-[98%]"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-slate-300 mb-1">
+                                        <span>Efectividad Marketing Digital</span>
+                                        <span class="font-bold text-pastel-roseDeep">92%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-900/80 rounded-full h-2 overflow-hidden border border-white/5">
+                                        <div class="bg-gradient-to-r from-pastel-lavenderDark to-pastel-roseDeep h-2 rounded-full w-[92%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Módulo extra -->
+                            <div class="bg-slate-900/80 p-4 rounded-2xl border border-white/10 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-scale-balanced text-pastel-goldRose text-lg"></i>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Garantía Regulatoria ARCO</div>
+                                        <div class="text-[10px] text-slate-400">Protección de Datos & Contratos</div>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN QUIÉNES SOMOS -->
+    <section id="quienes-somos" class="py-20 bg-slate-900/60 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-pastel-roseDeep font-bold text-xs tracking-widest uppercase bg-slate-800 px-4 py-1.5 rounded-full border border-pastel-roseBorder/40">
+                    Nuestra Identidad Corporativa
+                </span>
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-4 mb-3">
+                    Liderazgo Femenino con Rigor Analítico y Jurídico
+                </h2>
+                <div class="w-16 h-1 bg-pastel-roseDeep mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+                    En <strong class="text-white font-semibold">Consultoría Integral de Negocios Valor Integra S.A. de C.V.</strong> combinamos la alta dirección estratégica, la creatividad del marketing de vanguardia y el blindaje normativo mercantil para ofrecer un asesoramiento seguro y de alto impacto.
+                </p>
+            </div>
+
+            <!-- Trilogía Misión, Visión, Valores -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-slate-800/80 p-8 rounded-3xl border border-pastel-roseBorder/30 hover:shadow-soft-float transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-900 border border-pastel-roseBorder text-pastel-roseDeep flex items-center justify-center text-xl shadow-sm mb-5">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-white mb-3">Misión</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Transformar la operativa interna de las empresas mediante consultorías estratégicas personalizadas, potenciando su alcance digital y resguardando su legalidad mercantil.
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/80 p-8 rounded-3xl border border-emerald-500/30 hover:shadow-soft-float transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-900 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl shadow-sm mb-5">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-white mb-3">Visión</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Ser la agencia de consultoría integral líder en el sector, reconocida por proyectar elegancia, solidez financiera, efectividad en ventas digitales y cumplimiento regulatorio.
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/80 p-8 rounded-3xl border border-purple-500/30 hover:shadow-soft-float transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-900 border border-purple-500/30 text-purple-400 flex items-center justify-center text-xl shadow-sm mb-5">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-white mb-3">Valores</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Integridad Ética, Transparencia Legal, Empatía Femenina, Innovación en Marketing Digital y Compromiso Retorno sobre Inversión (ROI).
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. NUEVO MÓDULO INTERACTIVO: BUSCADOR / FILTRO DE SOLUCIONES -->
+    <section id="buscador-soluciones" class="py-20 bg-slate-950 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-pastel-goldRose font-bold text-xs tracking-widest uppercase bg-slate-900 px-4 py-1.5 rounded-full border border-pastel-roseBorder/40">
+                    Herramienta de Diagnóstico Inmediato
+                </span>
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-4 mb-2">
+                    ¿Qué Desafío Enfrenta Tu Empresa Hoy?
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-300">Selecciona el síntoma principal de tu negocio para mostrarte el plan de acción específico de Valor Integra.</p>
+            </div>
+
+            <!-- Filtros de Botones -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="filterSolution('ventas')" id="btn-sol-ventas" class="sol-btn px-5 py-2.5 rounded-full text-xs font-bold transition bg-pastel-roseDeep text-slate-950 shadow-sm">
+                    <i class="fa-solid fa-chart-line mr-2"></i>Pocas Ventas / Captación
+                </button>
+                <button onclick="filterSolution('procesos')" id="btn-sol-procesos" class="sol-btn px-5 py-2.5 rounded-full text-xs font-bold transition bg-slate-800 text-slate-200 border border-slate-700">
+                    <i class="fa-solid fa-diagram-project mr-2"></i>Procesos Desordenados
+                </button>
+                <button onclick="filterSolution('legal')" id="btn-sol-legal" class="sol-btn px-5 py-2.5 rounded-full text-xs font-bold transition bg-slate-800 text-slate-200 border border-slate-700">
+                    <i class="fa-solid fa-scale-balanced mr-2"></i>Incertidumbre Legal / Regulatoria
+                </button>
+                <button onclick="filterSolution('escalamiento')" id="btn-sol-escalamiento" class="sol-btn px-5 py-2.5 rounded-full text-xs font-bold transition bg-slate-800 text-slate-200 border border-slate-700">
+                    <i class="fa-solid fa-rocket mr-2"></i>Falta de Plan de Escalamiento
+                </button>
+            </div>
+
+            <!-- Resultado del Filtro -->
+            <div id="solution-output" class="bg-slate-900/90 rounded-3xl p-8 border border-pastel-roseBorder/50 shadow-soft-float max-w-4xl mx-auto">
+                <!-- Se llena dinámicamente con JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. SECCIÓN DE SERVICIOS CON SIMULADOR FINANCIERO INTEGRADO -->
+    <section id="servicios" class="py-20 bg-slate-900/40 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-pastel-roseDeep font-bold text-xs tracking-widest uppercase bg-slate-800 px-4 py-1.5 rounded-full">
+                    Solución Integral 360°
+                </span>
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-4 mb-3">
+                    Consultoría Estratégica del Funcionamiento Empresarial & Marketing
+                </h2>
+                <p class="text-slate-300 text-xs sm:text-sm">
+                    Producto insignia de <strong>Valor Integra S.A. de C.V.</strong> diseñado para reestructurar la operación, activar la maquinaria comercial y blindar legalmente el negocio.
+                </p>
+            </div>
+
+            <!-- SIMULADOR INTERACTIVO DE ROI -->
+            <div class="glass-card-rose rounded-3xl p-8 sm:p-10 border border-pastel-roseBorder shadow-soft-float mb-16">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <h3 class="font-serif font-bold text-2xl text-white">Simulador Interactivo de Crecimiento</h3>
+                    <p class="text-xs text-slate-300 mt-1">Ajusta los valores actuales de tu empresa para proyectar la optimización estimada.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-200 font-bold mb-2">
+                                <span>Inversión Mensual en Publicidad Digital:</span>
+                                <span id="sim-val-mkt" class="text-pastel-roseDeep">$800 USD</span>
+                            </div>
+                            <input type="range" id="sim-mkt" min="200" max="5000" step="100" value="800" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-200 font-bold mb-2">
+                                <span>Eficiencia Operativa Actual:</span>
+                                <span id="sim-val-efic" class="text-pastel-goldRose">45%</span>
+                            </div>
+                            <input type="range" id="sim-efic" min="20" max="95" step="5" value="45" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-200 font-bold mb-2">
+                                <span>Tamaño del Equipo (Colaboradores):</span>
+                                <span id="sim-val-equipo" class="text-purple-400">8 personas</span>
+                            </div>
+                            <input type="range" id="sim-equipo" min="1" max="50" step="1" value="8" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- Cuadro Resultados -->
+                    <div class="lg:col-span-5 bg-slate-900/90 p-6 rounded-2xl border border-pastel-roseBorder/60 text-center space-y-4 shadow-sm">
+                        <div class="text-[11px] font-bold text-slate-300 uppercase tracking-wider">Proyección Estimada a 6 Meses</div>
+                        
+                        <div class="space-y-1">
+                            <div class="text-xs text-slate-400">Aumento Estimado en Facturación</div>
+                            <div id="sim-res-ventas" class="text-3xl font-serif font-bold text-pastel-roseDeep">+165%</div>
+                        </div>
+
+                        <div class="space-y-1 pt-3 border-t border-slate-800">
+                            <div class="text-xs text-slate-400">Horas Operativas Ahorradas por Semana</div>
+                            <div id="sim-res-ahorro" class="text-2xl font-serif font-bold text-emerald-400">24 Horas</div>
+                        </div>
+
+                        <button onclick="openModalCita()" class="w-full py-3 bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose text-slate-950 font-bold rounded-xl text-xs hover:opacity-95 transition shadow-sm">
+                            Solicitar Asesoría para este Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. MARCO LEGAL & CUMPLIMIENTO REGULATORIO (ESENCIAL MERCANTIL) -->
+    <section id="marco-legal" class="py-20 bg-slate-950 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-pastel-goldRose font-bold text-xs tracking-widest uppercase bg-slate-900 px-4 py-1.5 rounded-full border border-pastel-roseBorder/40">
+                    Transparencia y Seguridad Jurídica
+                </span>
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-4 mb-3">
+                    Cumplimiento Regulatorio y Marco Legal Empresarial
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-300">
+                    Garantizamos que todas nuestras asesorías de negocio cumplen estrictamente con la normativa mercantil, fiscal y de protección de datos vigentes.
+                </p>
+            </div>
+
+            <!-- Acordeón Interactivo de Marco Legal -->
+            <div class="max-w-4xl mx-auto space-y-4" id="legal-accordion">
+                
+                <!-- Artículo 1 -->
+                <div class="bg-slate-900/90 rounded-2xl border border-pastel-roseBorder/40 overflow-hidden shadow-sm">
+                    <button onclick="toggleLegal('legal-1')" class="w-full p-5 text-left font-serif font-bold text-base text-white flex justify-between items-center hover:bg-white/5 transition">
+                        <span><i class="fa-solid fa-scale-balanced text-pastel-goldRose mr-3"></i> 1. Contratos de Confidencialidad (NDA) y Propiedad Intelectual</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-pastel-roseDeep" id="icon-legal-1"></i>
+                    </button>
+                    <div id="legal-1" class="hidden p-5 border-t border-slate-800 text-xs text-slate-300 space-y-2 bg-slate-950/60">
+                        <p>Cada consultoría iniciada con <strong>Valor Integra S.A. de C.V.</strong> incluye la firma obligatoria de un Acuerdo de No Divulgación (NDA). Todos los análisis financieros, bases de datos de clientes y secretos comerciales del cliente están resguardados bajo leyes de Propiedad Intelectual y Secreto Mercantil.</p>
+                    </div>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="bg-slate-900/90 rounded-2xl border border-pastel-roseBorder/40 overflow-hidden shadow-sm">
+                    <button onclick="toggleLegal('legal-2')" class="w-full p-5 text-left font-serif font-bold text-base text-white flex justify-between items-center hover:bg-white/5 transition">
+                        <span><i class="fa-solid fa-shield-cat text-pastel-roseDeep mr-3"></i> 2. Ley de Protección de Datos Personales (Derechos ARCO)</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-pastel-roseDeep" id="icon-legal-2"></i>
+                    </button>
+                    <div id="legal-2" class="hidden p-5 border-t border-slate-800 text-xs text-slate-300 space-y-2 bg-slate-950/60">
+                        <p>Las campañas de Marketing Digital diseñadas por la agencia cumplen strictly con las normativas de recolección transparente de datos (Políticas de Privacidad, Consentimiento Expreso y ejercicio de derechos de Acceso, Rectificación, Cancelación y Oposición ARCO).</p>
+                    </div>
+                </div>
+
+                <!-- Artículo 3 -->
+                <div class="bg-slate-900/90 rounded-2xl border border-pastel-roseBorder/40 overflow-hidden shadow-sm">
+                    <button onclick="toggleLegal('legal-3')" class="w-full p-5 text-left font-serif font-bold text-base text-white flex justify-between items-center hover:bg-white/5 transition">
+                        <span><i class="fa-solid fa-file-invoice-dollar text-emerald-400 mr-3"></i> 3. Normativa Fiscal y Comprobación de Servicios Consultivos</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-pastel-roseDeep" id="icon-legal-3"></i>
+                    </button>
+                    <div id="legal-3" class="hidden p-5 border-t border-slate-800 text-xs text-slate-300 space-y-2 bg-slate-950/60">
+                        <p>Como Sociedad Anónima de Capital Variable regularmente constituida, expedimos facturas fiscales deductibles de impuesto por servicios de honorarios profesionales de consultoría estratégica y gestión publicitaria.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. AUDITORÍA EXPRESS INTERACTIVA (TEST DE 4 PASOS) -->
+    <section id="diagnostico" class="py-20 bg-slate-900/60 relative border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-10">
+                <span class="text-pastel-roseDeep font-bold text-xs tracking-widest uppercase bg-slate-800 px-4 py-1.5 rounded-full border border-pastel-roseBorder/40">
+                    Evaluación Gratuita
+                </span>
+                <h2 class="font-serif font-bold text-3xl text-white mt-4 mb-2">
+                    Test Express de Salud Empresarial
+                </h2>
+                <p class="text-xs text-slate-300">Completa 4 preguntas y obtén una valoración preliminar con recomendaciones estratégicas e indicación regulatoria.</p>
+            </div>
+
+            <div class="bg-slate-900/90 rounded-3xl p-8 border border-pastel-roseBorder/50 shadow-soft-float relative">
+                
+                <!-- Barra de Progreso -->
+                <div class="w-full bg-slate-800 h-2 rounded-full mb-8 overflow-hidden">
+                    <div id="quiz-progress" class="bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose h-2 rounded-full w-[25%] transition-all duration-300"></div>
+                </div>
+
+                <!-- Pregunta 1 -->
+                <div id="quiz-q1" class="space-y-5">
+                    <div class="text-xs font-bold text-pastel-roseDeep">Paso 1 de 4</div>
+                    <h3 class="font-serif font-bold text-lg text-white">¿Cuál es el estado actual de los procesos operativos en tu empresa?</h3>
+                    <div class="space-y-3">
+                        <button onclick="nextQuizStep(2, 'desorden')" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>Informales e improvisados sin manuales escritos</span>
+                            <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                        </button>
+                        <button onclick="nextQuizStep(2, 'medio')" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>Parcialmente definidos pero con fallas de comunicación</span>
+                            <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div id="quiz-q2" class="hidden space-y-5">
+                    <div class="text-xs font-bold text-pastel-roseDeep">Paso 2 de 4</div>
+                    <h3 class="font-serif font-bold text-lg text-white">¿Cómo ejecutas la captación de clientes por Marketing Digital?</h3>
+                    <div class="space-y-3">
+                        <button onclick="nextQuizStep(3, 'sin_mkt')" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>No realizamos publicidad digital pagada</span>
+                            <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                        </button>
+                        <button onclick="nextQuizStep(3, 'sin_roi')" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>Invertimos en redes pero no medimos el retorno ni prospectos</span>
+                            <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div id="quiz-q3" class="hidden space-y-5">
+                    <div class="text-xs font-bold text-pastel-roseDeep">Paso 3 de 4</div>
+                    <h3 class="font-serif font-bold text-lg text-white">¿Cuentas con contratos estandarizados y aviso de privacidad legal?</h3>
+                    <div class="space-y-3">
+                        <button onclick="nextQuizStep(4, 'sin_legal')" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>No, usamos acuerdos verbales o formatos genéricos</span>
+                            <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                        </button>
+                        <button onclick="nextQuizStep(4, 'con_legal')" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>Sí, pero no están actualizados a las normas recientes</span>
+                            <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div id="quiz-q4" class="hidden space-y-5">
+                    <div class="text-xs font-bold text-pastel-roseDeep">Paso 4 de 4</div>
+                    <h3 class="font-serif font-bold text-lg text-white">¿Cuál es tu objetivo prioritario para los próximos 6 meses?</h3>
+                    <div class="space-y-3">
+                        <button onclick="finishQuizStep()" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>Duplicar ventas con embudos digitales estructurados</span>
+                            <i class="fa-solid fa-check text-emerald-400"></i>
+                        </button>
+                        <button onclick="finishQuizStep()" class="w-full p-4 text-left rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-pastel-roseDeep hover:bg-slate-800 transition text-xs text-slate-200 font-medium flex justify-between items-center">
+                            <span>Reestructurar la empresa y dejar la operación ordenada</span>
+                            <i class="fa-solid fa-check text-emerald-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Resultado final del quiz -->
+                <div id="quiz-results" class="hidden text-center space-y-6 py-4">
+                    <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-pastel-roseDeep text-3xl mx-auto border border-pastel-roseBorder">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl text-white">Diagnóstico de Madurez Completado</h3>
+                        <p class="text-xs text-slate-300 mt-2 max-w-md mx-auto">
+                            Tu negocio cuenta con un gran potencial de escalabilidad, pero requiere urgente alineación entre captación publicitaria, manuales operativos y resguardo legal NDA.
+                        </p>
+                    </div>
+                    <button onclick="openModalCita()" class="px-8 py-3.5 bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose text-slate-950 font-bold text-xs rounded-full shadow-rose-glow">
+                        Solicitar Sesión Diagnóstica sin Costo
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. PRECIOS FACTURABLES CON SWITCH MENSUAL / ANUAL Y DESGLOSE FISCAL -->
+    <section id="precios" class="py-20 bg-slate-950 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-pastel-goldRose font-bold text-xs tracking-widest uppercase bg-slate-900 px-4 py-1.5 rounded-full border border-pastel-roseBorder/40">
+                    Planes Claros & Deductibles
+                </span>
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-4 mb-3">
+                    Planes de Acompañamiento Empresarial
+                </h2>
+                
+                <!-- Toggle Mensual / Anual -->
+                <div class="mt-6 inline-flex items-center gap-4 bg-slate-900 p-2 rounded-full border border-slate-800 shadow-sm">
+                    <span class="text-xs font-bold text-slate-200">Facturación Mensual</span>
+                    <button id="plan-toggle-btn" onclick="togglePlanBilling()" class="w-12 h-6 bg-pastel-roseDeep rounded-full p-1 relative transition duration-300 focus:outline-none">
+                        <div id="plan-toggle-circle" class="w-4 h-4 bg-slate-950 rounded-full transition-transform duration-300"></div>
+                    </button>
+                    <span class="text-xs font-bold text-slate-400">Facturación Anual <span class="bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-[10px] px-2 py-0.5 rounded-full font-extrabold">-20% Ahorro</span></span>
+                </div>
+            </div>
+
+            <!-- Grilla de Precios -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Plan 1 -->
+                <div class="bg-slate-900/90 rounded-3xl p-8 border border-slate-800 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs text-pastel-goldRose font-bold uppercase tracking-wider mb-2">Pyme Básica</div>
+                        <h3 class="font-serif font-bold text-2xl text-white mb-3">Plan Estructura</h3>
+                        <p class="text-slate-300 text-xs mb-6">Para pequeñas empresas que necesitan organizar procesos e iniciar en marketing digital.</p>
+                        
+                        <div class="mb-6 pb-6 border-b border-slate-800">
+                            <span class="font-serif font-bold text-4xl text-white plan-price-monthly">$350</span>
+                            <span class="font-serif font-bold text-4xl text-white plan-price-annual hidden">$280</span>
+                            <span class="text-xs text-slate-400">/ mes USD (+ IVA Facturable)</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pastel-roseDeep"></i> Manual Operativo Inicial</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pastel-roseDeep"></i> 1 Embudo de Marketing Digital</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pastel-roseDeep"></i> Contrato Estándar y NDA</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModalCita()" class="w-full py-3 bg-slate-800 text-white font-bold rounded-xl text-xs hover:bg-pastel-roseDeep hover:text-slate-950 transition">Contratar Plan</button>
+                </div>
+
+                <!-- Plan 2 (Destacado) -->
+                <div class="glass-card-rose rounded-3xl p-8 border-2 border-pastel-roseDeep shadow-soft-float flex flex-col justify-between relative transform lg:-translate-y-2">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose text-slate-950 text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">Más Solicitado</span>
+                    <div>
+                        <div class="text-xs text-pastel-roseDeep font-bold uppercase tracking-wider mb-2 mt-2">Solución Recomendada</div>
+                        <h3 class="font-serif font-bold text-2xl text-white mb-3">Integral Valor Integra</h3>
+                        <p class="text-slate-300 text-xs mb-6">Servicio completo de reingeniería corporativa, marketing digital avanzado y blindaje legal.</p>
+
+                        <div class="mb-6 pb-6 border-b border-white/10">
+                            <span class="font-serif font-bold text-5xl text-white plan-price-monthly">$680</span>
+                            <span class="font-serif font-bold text-5xl text-white plan-price-annual hidden">$544</span>
+                            <span class="text-xs text-slate-400">/ mes USD (+ IVA Facturable)</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-200 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-pastel-roseDeep"></i> Reingeniería de Procesos 360°</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-pastel-roseDeep"></i> Estrategia Multicanal Ads (Meta + Google)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-pastel-roseDeep"></i> Auditoría Legal & Protección de Datos ARCO</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-pastel-roseDeep"></i> Sesiones Quincenales de Dirección</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModalCita()" class="w-full py-3.5 bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose text-slate-950 font-bold rounded-xl text-xs shadow-rose-glow hover:opacity-95 transition">Contratar Plan Integral</button>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="bg-slate-900/90 rounded-3xl p-8 border border-slate-800 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs text-pastel-goldRose font-bold uppercase tracking-wider mb-2">Escala Corporativa</div>
+                        <h3 class="font-serif font-bold text-2xl text-white mb-3">Enterprise Gold</h3>
+                        <p class="text-slate-300 text-xs mb-6">Para empresas maduras que requieren consultoría in-house y acompañamiento legal continuo.</p>
+
+                        <div class="mb-6 pb-6 border-b border-slate-800">
+                            <span class="font-serif font-bold text-4xl text-white plan-price-monthly">$1,250</span>
+                            <span class="font-serif font-bold text-4xl text-white plan-price-annual hidden">$1,000</span>
+                            <span class="text-xs text-slate-400">/ mes USD (+ IVA Facturable)</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pastel-roseDeep"></i> Asesoría Ejecutiva In-Company</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pastel-roseDeep"></i> Gestión Completa de Marca y Campañas</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pastel-roseDeep"></i> Abogada Mercantil Dedicada</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModalCita()" class="w-full py-3 bg-slate-800 text-white font-bold rounded-xl text-xs hover:bg-pastel-roseDeep hover:text-slate-950 transition">Solicitar Propuesta</button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. AGENDAMIENTO PASO A PASO EN MODAL -->
+    <div id="modal-cita" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 rounded-3xl max-w-lg w-full p-8 border border-pastel-roseBorder shadow-soft-float relative">
+            <button onclick="closeModalCita()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-slate-800 border border-pastel-roseBorder text-pastel-roseDeep flex items-center justify-center text-xl mx-auto mb-2">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-white">Agendar Sesión Diagnóstica</h3>
+                <p class="text-xs text-slate-400">Selecciona el tipo de consultoría y tu horario preferido.</p>
+            </div>
+
+            <form id="form-cita" onsubmit="submitCita(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-200 mb-1">Nombre Completo *</label>
+                    <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-pastel-roseDeep">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-200 mb-1">Empresa / Negocio *</label>
+                    <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-pastel-roseDeep">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-200 mb-1">Fecha *</label>
+                        <input type="date" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-pastel-roseDeep">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-200 mb-1">Modalidad</label>
+                        <select class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-pastel-roseDeep">
+                            <option>Videollamada Virtual</option>
+                            <option>Presencial en Oficina</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-200 mb-1">Tipo de Servicio de Interés</label>
+                    <select class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-pastel-roseDeep">
+                        <option>Consultoría Integral (Estructura + Marketing)</option>
+                        <option>Reingeniería Operativa de Procesos</option>
+                        <option>Blindaje Legal & Protección de Datos ARCO</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose text-slate-950 font-bold rounded-xl text-xs shadow-rose-glow">
+                    Confirmar Reserva de Cita
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 10. CHATBOT ASISTENTE VIRTUAL 'SOFÍA' -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <!-- Botón Flotante Chatbot -->
+        <button onclick="toggleChatbot()" class="w-14 h-14 bg-gradient-to-tr from-pastel-roseDeep to-pastel-goldRose text-slate-950 rounded-full shadow-rose-glow flex items-center justify-center text-xl hover:scale-110 transition duration-300 relative">
+            <i class="fa-solid fa-comments"></i>
+            <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-emerald-400 border-2 border-slate-950 rounded-full"></span>
+        </button>
+
+        <!-- Ventana del Chatbot -->
+        <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-slate-900 rounded-3xl shadow-2xl border border-pastel-roseBorder overflow-hidden flex flex-col">
+            <div class="bg-gradient-to-r from-pastel-roseDeep to-pastel-goldRose p-4 text-slate-950 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-slate-950/20 flex items-center justify-center text-sm font-bold">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold">Sofía | Consultora Integra</div>
+                        <div class="text-[9px] text-slate-900 font-semibold">Asistente Virtual Valor Integra S.A.</div>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="text-slate-950 hover:opacity-80 text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto custom-scrollbar text-xs space-y-3 bg-slate-950">
+                <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-700 text-slate-200 shadow-sm max-w-[85%]">
+                    ¡Hola! Soy Sofía. 👋 ¿En qué área puedo orientarte sobre <strong>Valor Integra S.A. de C.V.</strong>?
+                </div>
+            </div>
+
+            <!-- Botones de Acción Rápida del Chat -->
+            <div class="p-3 bg-slate-900 border-t border-slate-800 flex flex-wrap gap-1.5">
+                <button onclick="sendQuickReply('Precios de planes')" class="text-[10px] bg-slate-800 text-pastel-roseDeep px-2.5 py-1 rounded-full font-medium border border-pastel-roseBorder hover:bg-pastel-roseDeep hover:text-slate-950 transition">Precios Planes</button>
+                <button onclick="sendQuickReply('Marco legal NDA')" class="text-[10px] bg-slate-800 text-emerald-400 px-2.5 py-1 rounded-full font-medium border border-emerald-500/40 hover:bg-emerald-500 hover:text-slate-950 transition">Garantía Legal</button>
+                <button onclick="sendQuickReply('Agendar cita')" class="text-[10px] bg-slate-800 text-purple-400 px-2.5 py-1 rounded-full font-medium border border-purple-500/40 hover:bg-purple-500 hover:text-slate-950 transition">Agendar Cita</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-slate-950 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-slate-900 border border-pastel-roseBorder flex items-center justify-center text-pastel-roseDeep">
+                        <i class="fa-solid fa-gem text-lg"></i>
+                    </div>
+                    <span class="font-serif font-bold text-xl text-white">
+                        VALOR <span class="text-pastel-roseDeep italic">INTEGRA</span>
+                    </span>
+                </div>
+                <div class="text-xs text-center md:text-right text-slate-400">
+                    <p class="font-bold text-white">Consultoría Integral de Negocios Valor Integra S.A. de C.V.</p>
+                    <p>Agencia de Asesoramiento Estratégico, Marketing Digital & Normativa Mercantil</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 gap-4">
+                <p>&copy; 2026 Valor Integra S.A. de C.V. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#marco-legal" class="hover:text-pastel-roseDeep transition">Aviso de Privacidad</a>
+                    <a href="#marco-legal" class="hover:text-pastel-roseDeep transition">Términos del Servicio</a>
+                    <a href="#marco-legal" class="hover:text-pastel-roseDeep transition">Defensa de Graduación</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA INTERACTIVA JAVASCRIPT -->
+    <script>
+        // 1. Buscador / Filtro de Soluciones
+        const solutionsData = {
+            ventas: {
+                title: "Solución: Embudo de Captación Digital High-ROI",
+                desc: "Si tu empresa carece de flujo constante de clientes, implementamos campañas segmentadas en Meta & Google Ads alineadas a un sistema de ventas automatizado.",
+                bullet1: "✓ Generación continua de prospectos calificados.",
+                bullet2: "✓ Medición exacta del Costo por Adquisición (CAC)."
+            },
+            procesos: {
+                title: "Solución: Reingeniería y Manuales Operativos",
+                desc: "Reorganizamos la estructura interna de tu personal, eliminando cuello de botella y estandarizando tareas para operar sin depender del dueño.",
+                bullet1: "✓ Estandarización 100% de procesos de trabajo.",
+                bullet2: "✓ Reducción significativa de errores y costos operacionales."
+            },
+            legal: {
+                title: "Solución: Blindaje Jurídico y Protección ARCO",
+                desc: "Auditamos tus contratos mercantiles, acuerdos de confidencialidad NDA y políticas de datos para evitar sanciones administrativas.",
+                bullet1: "✓ Protección total de secretos comerciales.",
+                bullet2: "✓ Cumplimiento estricto con la Ley de Protección de Datos."
+            },
+            escalamiento: {
+                title: "Solución: Plan Director de Crecimiento a 12 Meses",
+                desc: "Diseñamos un mapa de ruta gerencial con metas de facturación, indicadores KPI y estrategias de expansión de mercado.",
+                bullet1: "✓ Panel de control financiero e indicadores en tiempo real.",
+                bullet2: "✓ Asesoría ejecutiva personalizada."
+            }
+        };
+
+        function filterSolution(key) {
+            document.querySelectorAll('.sol-btn').forEach(btn => {
+                btn.className = 'sol-btn px-5 py-2.5 rounded-full text-xs font-bold transition bg-slate-800 text-slate-200 border border-slate-700';
+            });
+            document.getElementById(`btn-sol-${key}`).className = 'sol-btn px-5 py-2.5 rounded-full text-xs font-bold transition bg-pastel-roseDeep text-slate-950 shadow-sm';
+
+            const data = solutionsData[key];
+            const output = document.getElementById('solution-output');
+            output.innerHTML = `
+                <div class="space-y-4 animate-fadeIn">
+                    <h3 class="font-serif font-bold text-2xl text-white">${data.title}</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${data.desc}</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-semibold text-white">
+                        <div class="bg-slate-800/80 p-3 rounded-xl border border-pastel-roseBorder/30">${data.bullet1}</div>
+                        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/30 text-emerald-400">${data.bullet2}</div>
+                    </div>
+                </div>
+            `;
+        }
+        // Inicializar filtro
+        filterSolution('ventas');
+
+        // 2. Simulador Interactivo
+        const simMkt = document.getElementById('sim-mkt');
+        const simEfic = document.getElementById('sim-efic');
+        const simEquipo = document.getElementById('sim-equipo');
+
+        function updateSim() {
+            if(!simMkt) return;
+            const mkt = parseInt(simMkt.value);
+            const efic = parseInt(simEfic.value);
+            const eq = parseInt(simEquipo.value);
+
+            document.getElementById('sim-val-mkt').textContent = `$${mkt.toLocaleString()} USD`;
+            document.getElementById('sim-val-efic').textContent = `${efic}%`;
+            document.getElementById('sim-val-equipo').textContent = `${eq} personas`;
+
+            const calcVentas = Math.round((mkt / 7) + (efic * 1.5));
+            const calcHoras = Math.round((efic * 0.3) + (eq * 1.2));
+
+            document.getElementById('sim-res-ventas').textContent = `+${calcVentas}%`;
+            document.getElementById('sim-res-ahorro').textContent = `${calcHoras} Horas`;
+        }
+
+        if(simMkt) {
+            simMkt.addEventListener('input', updateSim);
+            simEfic.addEventListener('input', updateSim);
+            simEquipo.addEventListener('input', updateSim);
+        }
+
+        // 3. Acordeón Marco Legal
+        function toggleLegal(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(`icon-${id}`);
+            if(content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.className = 'fa-solid fa-chevron-up text-xs text-pastel-roseDeep';
+            } else {
+                content.classList.add('hidden');
+                icon.className = 'fa-solid fa-chevron-down text-xs text-pastel-roseDeep';
+            }
+        }
+
+        // 4. Quiz Diagnóstico
+        function nextQuizStep(nextStep, val) {
+            document.querySelectorAll('[id^="quiz-q"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`quiz-q${nextStep}`).classList.remove('hidden');
+            document.getElementById('quiz-progress').style.width = `${nextStep * 25}%`;
+        }
+        function finishQuizStep() {
+            document.querySelectorAll('[id^="quiz-q"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('quiz-results').classList.remove('hidden');
+            document.getElementById('quiz-progress').style.width = '100%';
+        }
+
+        // 5. Plan Toggle Mensual / Anual
+        let isAnnual = false;
+        function togglePlanBilling() {
+            isAnnual = !isAnnual;
+            const circle = document.getElementById('plan-toggle-circle');
+            if(isAnnual) {
+                circle.classList.add('translate-x-6');
+                document.querySelectorAll('.plan-price-monthly').forEach(el => el.classList.add('hidden'));
+                document.querySelectorAll('.plan-price-annual').forEach(el => el.classList.remove('hidden'));
+            } else {
+                circle.classList.remove('translate-x-6');
+                document.querySelectorAll('.plan-price-monthly').forEach(el => el.classList.remove('hidden'));
+                document.querySelectorAll('.plan-price-annual').forEach(el => el.classList.add('hidden'));
+            }
+        }
+
+        // 6. Modal Agendamiento
+        function openModalCita() {
+            document.getElementById('modal-cita').classList.remove('hidden');
+        }
+        function closeModalCita() {
+            document.getElementById('modal-cita').classList.add('hidden');
+        }
+        function submitCita(e) {
+            e.preventDefault();
+            alert('¡Gracias por agendar con Valor Integra S.A. de C.V.! Una consultora se pondrá en contacto contigo.');
+            closeModalCita();
+        }
+
+        // 7. Chatbot Sofía
+        function toggleChatbot() {
+            document.getElementById('chatbot-window').classList.toggle('hidden');
+        }
+        function sendQuickReply(text) {
+            const box = document.getElementById('chat-messages');
+            box.innerHTML += `<div class="bg-pastel-roseDeep text-slate-950 p-3 rounded-2xl rounded-tr-none font-semibold ml-auto max-w-[80%]">${text}</div>`;
+            
+            setTimeout(() => {
+                let reply = "Con gusto puedo ayudarte con más detalles sobre ese punto.";
+                if(text.includes('Precios')) reply = "Nuestros planes van desde $350 USD/mes hasta opciones Enterprise completas. Todos son facturables.";
+                if(text.includes('legal')) reply = "Todas nuestras asesorías firman un acuerdo NDA de confidencialidad y cumplen con normativas mercantiles.";
+                if(text.includes('Agendar')) {
+                    reply = "Te abro el formulario de agendamiento de cita en pantalla.";
+                    openModalCita();
+                }
+
+                box.innerHTML += `<div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-700 text-slate-200 shadow-sm max-w-[85%]">${reply}</div>`;
+                box.scrollTop = box.scrollHeight;
+            }, 600);
+        }
+
+        // 8. Partículas Pasteles Canvas
+        const canvas = document.getElementById('pastel-canvas');
+        const ctx = canvas.getContext('2d');
+        function resizeC() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeC();
+        window.addEventListener('resize', resizeC);
+
+        const particles = [];
+        const colors = ['#F472B6', '#34D399', '#C084FC', '#FBBF24'];
+        for(let i=0; i<30; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 3 + 1,
+                color: colors[Math.floor(Math.random()*colors.length)],
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                alpha: Math.random() * 0.5 + 0.2
+            });
+        }
+        function animPastel() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.alpha;
+                ctx.fill();
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+            });
+            requestAnimationFrame(animPastel);
+        }
+        animPastel();
+    </script>
+</body>
+</html>
